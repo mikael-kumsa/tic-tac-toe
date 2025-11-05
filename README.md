@@ -1,16 +1,72 @@
-# React + Vite
+# Tic Tac Toe (React + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains a small Tic Tac Toe game built with React and Vite. It's a lightweight app intended for learning React hooks, context, and simple game logic.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 2-player local game (X vs O)
+- Tracks current turn and highlights status in color (red for X, blue for O)
+- Shows a popup on win/draw with an option to play again
+- Simple scoreboard that increments when a player wins
+- Responsive board and accessible buttons (aria-label on squares)
 
-## React Compiler
+## Demo / How to play
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Run the dev server (see setup below).
+2. Click a square to place X (X goes first) or O.
+3. The app will detect three-in-a-row wins or a draw and show a popup.
+4. Close the popup to reset the board and increment the winner's score.
 
-## Expanding the ESLint configuration
+## Tech stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React 18+ (hooks and context)
+- Vite for development and build
+- Plain CSS for styling
+
+## Setup (Windows PowerShell)
+
+Install dependencies and run the dev server:
+
+```powershell
+npm install
+npm run dev
+```
+
+Open the URL printed by Vite (usually http://localhost:5173) in your browser.
+
+## Available scripts
+
+- `npm run dev` — start the Vite dev server  
+- `npm run build` — build for production  
+- `npm run preview` — locally preview the production build  
+- `npm run lint` — run ESLint (if configured)
+
+## Project structure (important files)
+
+- `src/`
+  - `main.jsx` — app entry and ReactDOM bootstrapping
+  - `App.jsx` — top-level app component
+  - `Components/Index.jsx` — main game UI (board, squares, popup)
+  - `Context/GameContext.jsx` — game state and logic (board, turns, winner calculation)
+  - `index.css` / `App.css` — styling
+
+## Notes & implementation details
+
+- The game logic lives in `Context/GameContext.jsx`. It exposes `board`, `isXNext`, `winner`, `handleClick`, and `resetGame` via React Context.
+- Winner detection checks all 8 winning lines and returns `"X"`, `"O"`, `"Draw"`, or `null`.
+- The UI uses classes to color the status text and the placed X/O (red for X, blue for O).
+
+## Contributing
+
+This is a small learning project — contributions are welcome. Ideas:
+
+- Add an AI opponent (minimax or simple heuristics)
+- Persist scoreboard in localStorage
+- Add animations and improved responsive layout
+- Add tests (Jest / React Testing Library) for `getWinner` and components
+
+If you make changes, open a pull request with a short description of the change.
+
+## License
+
+This project is provided as-is for learning and demo purposes. Feel free to reuse the code in your own projects.
