@@ -76,7 +76,7 @@ const Board = () => {
                     ? isDraw
                         ? "It's a draw!"
                         : `Winner: ${winner}`
-                    : `Turn ${isXNext ? "X" : "O"}`}
+                    : `${isXNext ? "X's Turn" : "O's Turn"}`}
             </h2>
 
             <div className="board">
