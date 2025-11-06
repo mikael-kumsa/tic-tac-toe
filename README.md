@@ -39,7 +39,6 @@ Open the URL printed by Vite (usually http://localhost:5173) in your browser.
 - `npm run dev` — start the Vite dev server  
 - `npm run build` — build for production  
 - `npm run preview` — locally preview the production build  
-- `npm run lint` — run ESLint (if configured)
 
 ## Project structure (important files)
 
@@ -49,12 +48,6 @@ Open the URL printed by Vite (usually http://localhost:5173) in your browser.
   - `Components/Index.jsx` — main game UI (board, squares, popup)
   - `Context/GameContext.jsx` — game state and logic (board, turns, winner calculation)
   - `index.css` / `App.css` — styling
-
-## Notes & implementation details
-
-- The game logic lives in `Context/GameContext.jsx`. It exposes `board`, `isXNext`, `winner`, `handleClick`, and `resetGame` via React Context.
-- Winner detection checks all 8 winning lines and returns `"X"`, `"O"`, `"Draw"`, or `null`.
-- The UI uses classes to color the status text and the placed X/O (red for X, blue for O).
 
 ## Contributing
 
